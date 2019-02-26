@@ -1,0 +1,26 @@
+let speed = 0
+let counter = 0
+let acc = 0
+acc = 0
+counter = 0
+speed = 1
+basic.forever(function () {
+    for (let j = 0; j <= 5 - 1; j++) {
+        for (let i = 0; i <= 5 - 1; i++) {
+            basic.pause(speed)
+            led.toggle(i, j)
+        }
+    }
+    speed += 1
+    input.onButtonPressed(Button.A, function () {
+        speed = 1;
+    })
+
+    input.onButtonPressed(Button.B, function () {
+        radio.sendNumber(acc)
+    })
+
+    radio.onReceivedNumber(function (receivedNumber: number) {
+    led.brightness();
+})
+})
